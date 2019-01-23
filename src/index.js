@@ -1,3 +1,5 @@
+import express from 'express';
+
 const { GraphQLServer } = require('graphql-yoga')
 const { Prisma } = require('prisma-binding')
 const Query = require('./resolvers/Query')
@@ -5,6 +7,8 @@ const Mutation = require('./resolvers/Mutation')
 const AuthPayload = require('./resolvers/AuthPayload')
 const Subscription = require('./resolvers/Subscription')
 const Feed = require('./resolvers/Feed')
+
+const app = express()
 
 const resolvers = {
   Query,
@@ -32,4 +36,10 @@ const server = new GraphQLServer({
   playground: true
 })
 
-server.start(() => console.log('Server is running on http://localhost:4000'))
+
+server.applyMiddleware({ app, path: '/graphql' });
+app.listen({ port: 8000 }, () => {
+  console.log('Apollo Server on http://localhost:8000/graphql');
+});
+//server.start(() => console.log('Server is running on http://localhost:4000'));
+
