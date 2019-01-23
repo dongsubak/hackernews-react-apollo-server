@@ -26,6 +26,10 @@ const server = new GraphQLServer({
       debug: true
     }),
   }),
+  debug: true,
+  tracing: true,
+  introspection: true,
+  playground: true
 })
 
 server.start(() => console.log('Server is running on http://localhost:4000'))
