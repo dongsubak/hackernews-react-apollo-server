@@ -38,8 +38,8 @@ const server = new GraphQLServer({
 
 
 server.applyMiddleware({ app, path: '/graphql' });
-app.listen({ port: 8000 }, () => {
-  console.log('Apollo Server on http://localhost:8000/graphql');
+app.listen({ port: 4000 }, () => {
+  console.log('Apollo Server on http://localhost:4000/graphql');
 });
 //server.start(() => console.log('Server is running on http://localhost:4000'));
 
