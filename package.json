@@ -2,7 +2,7 @@
   "name": "hackernews-graphql-js",
   "scripts": {
     "start": "yarn start",
-    "node" : "node src/index.js"
+    "node" : "node src/index.js",
     "devdev": "npm-run-all --parallel start playground",
     "playground": "graphql playground",
     "prisma": "prisma"
